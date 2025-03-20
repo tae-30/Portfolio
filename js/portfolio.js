@@ -8,10 +8,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // TopTitleのアニメーション
     function visible() {
-        const topTitle = document.querySelector(".TopTitle");
-        topTitle.classList.add("visible");
+        setTimeout(() => {
+            document.querySelector(".TopTitle").classList.add("visible");
+        }, 500);
 
     }
+
+    const colorChange = document.querySelector('.colorChange');
+    colorChange.addEventListener('click', function () {
+        if (document.documentElement.getAttribute('theme') === 'dark') {
+            document.documentElement.setAttribute('theme', 'light');
+        }
+        else {
+            document.documentElement.setAttribute('theme', 'dark');
+        }
+    });
 
     // メニュー内リンクを取得してスクロール処理を一括登録
     const menuLinks = document.querySelectorAll('.menu a');

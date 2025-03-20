@@ -4,17 +4,37 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+}
+
+[theme="dark"] {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+}
+
 /* 背景と基本フォントサイズ */
 body {
-    background-color: black;
-    color: white;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     font-size: 100%;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.colorChange {
+    width: 2.5em;
+    height: 2.5em;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 0.8rem;
 }
 
 .MenuIcon {
     display: none;
     cursor: pointer;
-    color: White;
+    /* color: White; */
 }
 
 /* ヘッダー */
@@ -30,7 +50,7 @@ body {
 /* ヘッダー内のテキスト */
 .TopText {
     font-size: 1rem;
-    color: white;
+    /* color: white; */
     font-family: Georgia;
     margin-left: 2em;
     margin-right: 28em;
@@ -39,24 +59,18 @@ body {
 
 .menu {
     display: flex;
+    pointer-events: auto;
 }
 
 /* リンク */
 .menu a {
     display: flex;
-    color: white;
+    pointer-events: auto;
+    color: var(--text-color);
     font-family: Georgia;
     text-decoration: none;
     font-size: 0.9rem;
     margin: 0 1.5em;
-}
-
-.ChangeColorHeader {
-    background-color: white;
-}
-
-.ChangeColorText {
-    color: black;
 }
 
 .TopTitle {
@@ -64,7 +78,7 @@ body {
     transition: opacity 4s ease;
     font-size: 5rem;
     font-family: Academy Engraved LET;
-    color: white;
+    /* color: white; */
 }
 
 .TopTitle.visible {
@@ -91,6 +105,10 @@ body {
         font-size: 16px;
     }
 
+    .colorChange {
+        margin-left: 9em;
+    }
+
     .MenuIcon {
         display: block;
     }
@@ -112,7 +130,7 @@ body {
         flex-direction: column;
         /* 縦並びに変更 */
         align-items: flex-start;
-        background-color: white;
+        /* background-color: white; */
         /* メニュー背景色を設定 */
         padding: 0em 2em;
         position: absolute;
@@ -126,7 +144,7 @@ body {
 
     .menu a {
         font-size: 1em;
-        color: black;
+        color: var(--text-color);
         margin: 0.5em 0;
         /* 各リンクに余白を設定 */
         text-align: left;
